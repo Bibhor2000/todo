@@ -1,2 +1,9 @@
 Reference for the the todo list:
 https://pusher.com/tutorials/todo-app-react-hooks/
+https://towardsdatascience.com/build-a-simple-todo-app-using-react-a492adc9c8a4
+
+Reference for usage of spread operator(On lines 67, 72. 78):
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+
+Reference for learning handleSubmit(On lines 25, 33):
+https://redux-form.com/8.3.0/docs/faq/handlevson.md/

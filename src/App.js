@@ -3,16 +3,16 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 
 //Function for shaping the appearance of a task element
-function Task({ task, index, completeTask, removeTask }) {
+function Task({ task, index, markTask, removeTask }) {
   return (
       <div
           className="task"
-          style={{ textDecoration: task.completed ? "line-through" : "" }}
+          style={{ textDecoration: task.completed ? "line-through" : "" }} //Terinary operator for marking completed task
       >
           {task.title}
 
-          <button style={{ background: "red" }} onClick={() => removeTask(index)}>x</button>
-          <button onClick={() => completeTask(index)}>Complete</button>
+          <button style={{ background: "red" }} onClick={() => removeTask(index)}>Remove</button> 
+          <button onClick={() => markTask(index)}>Complete</button>
 
       </div>
   );
@@ -22,11 +22,12 @@ function Task({ task, index, completeTask, removeTask }) {
 function CreateTask({ addTask }) {
   const [value, setValue] = useState("");
 
-  const handleSubmit = e => {
-      e.preventDefault();
+  const handleSubmit = event => {
+      event.preventDefault();
       if (!value) return;
       addTask(value);
       setValue("");
+      //console.log(value);
   }
   return (
       <form onSubmit={handleSubmit}>
@@ -35,7 +36,7 @@ function CreateTask({ addTask }) {
               className="input"
               value={value}
               placeholder="Add a new task"
-              onChange={e => setValue(e.target.value)}
+              onChange={event => setValue(event.target.value)}
           />
       </form>
   );
@@ -68,7 +69,7 @@ function App () {
       setTasks(newTasks);
   };
   
-  const completeTask = index => {
+  const markTask = index => {
       const newTasks = [...tasks];
       newTasks[index].completed = true;
       setTasks(newTasks);
@@ -88,7 +89,7 @@ function App () {
                   <Task
                   task={task}
                   index={index}
-                  completeTask={completeTask}
+                  markTask={markTask}
                   removeTask={removeTask}
                   key={index}
                   />

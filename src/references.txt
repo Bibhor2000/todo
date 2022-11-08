@@ -13,3 +13,6 @@ https://stackoverflow.com/questions/30766441/how-to-use-comments-in-react
 
 Reference for onChange on line 39:
 https://www.w3schools.com/jsref/event_onchange.asp
+
+Reference for reviewing keys on line 94:
+https://reactjs.org/docs/lists-and-keys.html

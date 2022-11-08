@@ -7,3 +7,9 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spre
 
 Reference for learning handleSubmit(On lines 25, 33):
 https://redux-form.com/8.3.0/docs/faq/handlevson.md/
+
+Reference for commenting on react:
+https://stackoverflow.com/questions/30766441/how-to-use-comments-in-react
+
+Reference for onChange on line 39:
+https://www.w3schools.com/jsref/event_onchange.asp

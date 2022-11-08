@@ -7,7 +7,7 @@ function Task({ task, index, markTask, removeTask }) {
   return (
       <div
           className="task"
-          style={{ textDecoration: task.completed ? "line-through" : "" }} //Terinary operator for marking completed task
+          style={{ textDecoration: task.complete ? "line-through" : "" }} //Terinary operator for marking completed task
       >
           {task.title}
 
@@ -19,18 +19,18 @@ function Task({ task, index, markTask, removeTask }) {
 }
 
 //Function for creating the task
-function CreateTask({ addTask }) {
-  const [value, setValue] = useState("");
+function CreateTask({ addTask }) { //addTask is a prop here
+  const [value, setValue] = useState(""); //two elements with empty strings
 
-  const handleSubmit = event => {
-      event.preventDefault();
+  const handleSubmit = event => { //if no value, calls the addTask function with the input value
+      event.preventDefault(); 
       if (!value) return;
       addTask(value);
       setValue("");
       //console.log(value);
   }
   return (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}> {/* Calls on handleSubmit function */}
           <input
               type="text"
               className="input"
@@ -45,33 +45,33 @@ function CreateTask({ addTask }) {
 //Main function
 function App () {
   const [tasksRemaining, setTasksRemaining] = useState(0);
-  const [tasks, setTasks] = useState([
+  const [tasks, setTasks] = useState([ //An array of objects with two elements
       {
           title: "Wash the dishes",
-          completed: true
+          complete: true
       },
       {
           title: "Walk the dog",
-          completed: true
+          complete: true
       },
       {
           title: "Make the bed",
-          completed: false
+          complete: false
       }
   ]);
     
   useEffect(() => { 
-    setTasksRemaining(tasks.filter(task => !task.completed).length) 
+    setTasksRemaining(tasks.filter(task => !task.complete).length) 
   });
 
   const addTask = title => {
-      const newTasks = [...tasks, { title, completed: false }];
+      const newTasks = [...tasks, { title, complete: false }];
       setTasks(newTasks);
   };
   
   const markTask = index => {
       const newTasks = [...tasks];
-      newTasks[index].completed = true;
+      newTasks[index].complete = true;
       setTasks(newTasks);
   };
   

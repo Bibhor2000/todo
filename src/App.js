@@ -22,7 +22,7 @@ function Task({ task, indexPosition, markTask, removeTask }) {
 function Create({ addTask }) { //addTask is a prop here
   const [value, setValue] = useState(""); //two elements with empty strings
 
-  const handleSubmit = event => { //if no value, calls the addTask function with the input value
+  const handleSubmit = event => { //if no value, grabs the addTask prop with the input value
       event.preventDefault(); 
       if (!value) return;
       addTask(value);
